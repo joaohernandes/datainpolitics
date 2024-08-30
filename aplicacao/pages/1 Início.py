@@ -144,8 +144,8 @@ if 'Vereador' in tipo_eleicao:
         # Atualizar o layout para melhor exibir os rótulos
         fig.update_traces(texttemplate='%{text:.2%}',
                           textposition='outside')  # Formato de porcentagem e posição externa
-        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
-
+        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide', height=600, margin=dict(t=50),
+                          xaxis_tickangle=-45)
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
 
@@ -237,8 +237,7 @@ if tipo_eleicao in "Prefeito":
         # Atualizar o layout para melhor exibir os rótulos
         fig.update_traces(texttemplate='%{text:.2%}',
                           textposition='outside')  # Formato de porcentagem e posição externa
-        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
-
+        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide',height=600, margin=dict(t=50), xaxis_tickangle=-45)
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
 
