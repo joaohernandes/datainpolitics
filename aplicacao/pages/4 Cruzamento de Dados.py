@@ -8,7 +8,7 @@ if "dataLocais2020" not in st.session_state:
     st.session_state["dataLocais2020"] = None  # Ou inicialize com algum valor padrão
     st.write("### Dados não foram carregados. Por favor, clique na página -> **|Carregador de Dados|**. Que fica no menu do lado esquerdo da tela.")
 # Adicionar Logo
-logo = "img/Main Logo Black.png"
+logo = "aplicacao/img/Main Logo Black.png"
 st.image(logo, width=150)
 st.markdown(
     """

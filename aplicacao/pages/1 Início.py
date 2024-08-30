@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 st.set_page_config(page_title="Dashboard Eleitoral", layout="wide")
 # Adicionar Logo
-logo = "img/Main Logo Black.png"
+logo = "aplicacao/img/Main Logo Black.png"
 st.image(logo, width=150)
 if "dataLocais2020" not in st.session_state:
     st.session_state["dataLocais2020"] = None  # Ou inicialize com algum valor padrão

@@ -50,14 +50,14 @@ st.markdown(
 
 @st.cache_data()
 def carregarDados():
-    dadosSP = gp.read_file('Dados/newdatabaseSP.shp')
-    dadosSP2022 = gp.read_file('Dados/setores2022Cidades.shp')
-    perfil2024 = pd.read_csv('Dados/perfil2024Cidades.csv', decimal=',')
+    dadosSP = gp.read_file('aplicacao/Dados/newdatabaseSP.shp')
+    dadosSP2022 = gp.read_file('aplicacao/Dados/setores2022Cidades.shp')
+    perfil2024 = pd.read_csv('aplicacao/Dados/perfil2024Cidades.csv', decimal=',')
     perfil2020 = pd.read_csv('Dados/perfil2020Cidades.csv', decimal=',')
-    boletim1Pref = pd.read_csv('Dados/boletimPrefCidades.csv')
-    boletimVere = pd.read_csv('Dados/boletimVereCidades.csv')
-    locais2024 = pd.read_csv('Dados/local2024Cidades.csv')
-    locais2020 = pd.read_csv('Dados/local2020Cidades.csv')
+    boletim1Pref = pd.read_csv('aplicacao/Dados/boletimPrefCidades.csv')
+    boletimVere = pd.read_csv('aplicacao/Dados/boletimVereCidades.csv')
+    locais2024 = pd.read_csv('aplicacao/Dados/local2024Cidades.csv')
+    locais2020 = pd.read_csv('aplicacao/Dados/local2020Cidades.csv')
 
     return dadosSP, dadosSP2022, perfil2024, perfil2020, boletim1Pref, boletimVere, locais2024, locais2020
 
