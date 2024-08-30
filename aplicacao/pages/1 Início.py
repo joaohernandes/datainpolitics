@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_extras.switch_page_button import switch_page
 import plotly.graph_objects as go
+import plotly.express as px
 
 st.set_page_config(page_title="Dashboard Eleitoral", layout="wide")
 # Adicionar Logo
@@ -140,7 +141,7 @@ if 'Vereador' in tipo_eleicao:
 
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
-        
+
         st.write(
             "**Dica:** Analise em quais locais de votação esses candidatos foram melhor e na página **PERFIL POR SEÇÃO** **descubra** qual o **perfil do eleitor** que vota naquele local")
         st.write('**Clique no botão abaixo e descubra o Perfil do Eleitor de cada seção.**')
