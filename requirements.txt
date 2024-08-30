@@ -1,0 +1,10 @@
+streamlit
+pandas
+geopandas
+requests
+streamlit-extras
+plotly
+folium
+streamlit_folium
+mapclassify
+branca
