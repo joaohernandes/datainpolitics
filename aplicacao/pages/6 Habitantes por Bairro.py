@@ -93,6 +93,6 @@ colormap.add_to(m)
 folium.LayerControl().add_to(m)
 
 # Exibir o mapa no Streamlit
-st_folium(m, width=900, height=600)
+st_folium(m, width=800, height=400)
 
 st.write('Dados do IBGE | Censo 2022')

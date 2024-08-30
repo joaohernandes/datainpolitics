@@ -129,53 +129,18 @@ if 'Vereador' in tipo_eleicao:
         df_votosSecaoCandidato['PROPORCAO_VOTOS'] = df_votosSecaoCandidato['QT_VOTOS'] / df_votosSecaoCandidato[
             'TOTAL_VOTOS_SECAO']
 
-        # Gráfico Proporção de Votos por Seção
-        fig = go.Figure()
-
-        for candidato in candidatos_selecionados:
-            df_candidato = df_votosSecaoCandidato[df_votosSecaoCandidato['NM_VOTAVEL'] == candidato]
-            fig.add_trace(go.Scatter(
-                x=df_candidato['NM_LOCAL_VOTACAO'],
-                y=df_candidato['PROPORCAO_VOTOS'],
-                mode='lines',
-                name=candidato,
-            ))
-
-        # Adicionar anotações para cada ponto de dados com fundo
-        annotations = []
-        for candidato in candidatos_selecionados:
-            df_candidato = df_votosSecaoCandidato[df_votosSecaoCandidato['NM_VOTAVEL'] == candidato]
-            for i, row in df_candidato.iterrows():
-                annotations.append(dict(
-                    x=row['NM_LOCAL_VOTACAO'],
-                    y=row['PROPORCAO_VOTOS'],
-                    text=f"{row['PROPORCAO_VOTOS']:.2%}",
-                    showarrow=False,
-                    xanchor='center',
-                    yanchor='bottom',
-                    bgcolor='rgba(255, 255, 255, 0)',  # Fundo branco com transparência
-                    font=dict(size=12),
-                    yshift=10  # Ajusta a posição vertical do texto
-                ))
-
-        # Ajustar layout do gráfico
-        fig.update_layout(
-            title={
-                'text': 'Proporção de Votos por Seção para os Candidatos Selecionados',
-                'x': 0,  # Alinhar à esquerda
-                'xanchor': 'left'
-            },
-            legend_title='Candidatos',
-            showlegend=True,
-            plot_bgcolor='rgba(0,0,0,0)',
-            xaxis=dict(showgrid=False, zeroline=False),
-            yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-            # yaxis=dict(showgrid=False, zeroline=False, showticklabels=True, title='Proporção de Votos', tickformat=".2%"),
-            annotations=annotations
-        )
+        # Criar um gráfico de barras usando Plotly Express
+        fig = px.bar(df_votosSecaoCandidato,
+                     x='NM_LOCAL_VOTACAO',
+                     y='PROPORCAO_VOTOS',
+                     color='NM_VOTAVEL',
+                     labels={'PROPORCAO_VOTOS': 'Proporção de Votos', 'NM_LOCAL_VOTACAO': 'Local de Votação'},
+                     title='Proporção de Votos por Candidato e Local de Votação',
+                     barmode='group')  # 'group' coloca as barras lado a lado para cada candidato
 
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
+        
         st.write(
             "**Dica:** Analise em quais locais de votação esses candidatos foram melhor e na página **PERFIL POR SEÇÃO** **descubra** qual o **perfil do eleitor** que vota naquele local")
         st.write('**Clique no botão abaixo e descubra o Perfil do Eleitor de cada seção.**')
