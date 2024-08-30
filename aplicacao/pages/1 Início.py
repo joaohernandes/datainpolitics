@@ -130,15 +130,21 @@ if 'Vereador' in tipo_eleicao:
         df_votosSecaoCandidato['PROPORCAO_VOTOS'] = df_votosSecaoCandidato['QT_VOTOS'] / df_votosSecaoCandidato[
             'TOTAL_VOTOS_SECAO']
 
-        # Criar um gráfico de barras usando Plotly Express
+        # Criar um gráfico de barras usando Plotly Express com rótulos de dados
         fig = px.bar(df_votosSecaoCandidato,
                      x='NM_LOCAL_VOTACAO',
                      y='PROPORCAO_VOTOS',
-                     color='NM_VOTAVEL',  # Colore as barras de acordo com o candidato
+                     color='NM_VOTAVEL',
+                     text='PROPORCAO_VOTOS',  # Adiciona os rótulos de dados
                      labels={'PROPORCAO_VOTOS': 'Proporção de Votos', 'NM_LOCAL_VOTACAO': 'Local de Votação'},
                      title='Proporção de Votos por Candidato e Local de Votação',
-                     barmode='group',  # 'group' coloca as barras lado a lado para cada candidato
-                     color_discrete_sequence=px.colors.qualitative.Plotly)  # Define uma paleta de cores
+                     barmode='group',
+                     color_discrete_sequence=px.colors.qualitative.Plotly)
+
+        # Atualizar o layout para melhor exibir os rótulos
+        fig.update_traces(texttemplate='%{text:.2%}',
+                          textposition='outside')  # Formato de porcentagem e posição externa
+        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
 
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
@@ -217,15 +223,21 @@ if tipo_eleicao in "Prefeito":
         df_votosSecaoCandidato['PROPORCAO_VOTOS'] = df_votosSecaoCandidato['QT_VOTOS'] / df_votosSecaoCandidato[
             'TOTAL_VOTOS_SECAO']
 
-        # Criar um gráfico de barras usando Plotly Express
+        # Criar um gráfico de barras usando Plotly Express com rótulos de dados
         fig = px.bar(df_votosSecaoCandidato,
                      x='NM_LOCAL_VOTACAO',
                      y='PROPORCAO_VOTOS',
-                     color='NM_VOTAVEL',  # Colore as barras de acordo com o candidato
+                     color='NM_VOTAVEL',
+                     text='PROPORCAO_VOTOS',  # Adiciona os rótulos de dados
                      labels={'PROPORCAO_VOTOS': 'Proporção de Votos', 'NM_LOCAL_VOTACAO': 'Local de Votação'},
                      title='Proporção de Votos por Candidato e Local de Votação',
-                     barmode='group',  # 'group' coloca as barras lado a lado para cada candidato
-                     color_discrete_sequence=px.colors.qualitative.Plotly)  # Define uma paleta de cores
+                     barmode='group',
+                     color_discrete_sequence=px.colors.qualitative.Plotly)
+
+        # Atualizar o layout para melhor exibir os rótulos
+        fig.update_traces(texttemplate='%{text:.2%}',
+                          textposition='outside')  # Formato de porcentagem e posição externa
+        fig.update_layout(uniformtext_minsize=8, uniformtext_mode='hide')
 
         # Exibir o gráfico no Streamlit
         st.plotly_chart(fig)
