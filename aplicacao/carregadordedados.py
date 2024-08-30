@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"  # Estado inicial da barra lateral ("expanded" ou "collapsed")
 )
 # Adicionar Logo
-logo = "img/Main Logo Black.png"
+logo = "aplicacao/img/Main Logo Black.png"
 st.image(logo, width=150)
 st.title('Olá! Bem-Vindo!')
 st.write('##### Todos os dados foram carregados com sucesso!')
