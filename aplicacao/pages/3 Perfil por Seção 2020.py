@@ -91,8 +91,8 @@ with col2:
     # Agrupar por faixa etária e somar o número de eleitores
     df_agrupado = mergePerfilLocalLocal.groupby('DS_FAIXA_ETARIA')['QT_ELEITORES_PERFIL'].sum().reset_index()
     # Ordenar as faixas etárias para um melhor visual
-    ordem_faixa_etaria = ["16 anos", "17 anos", "18 a 20 anos", "21 a 24 anos", "25 a 34 anos", "35 a 44 anos","45 a 59 anos",
-                          "60 a 69 anos","70 a 79 anos", "Superior a 79 anos"]
+    ordem_faixa_etaria = ["16 anos", "17 anos", "18 anos","19 anos", "20 anos","21 a 24 anos", "25 a 29 anos", "30 a 34 anos","35 a 39 anos",
+                          "40 a 44 anos","45 a 49 anos","50 a 54 anos","55 a 59 anos","60 a 64 anos","65 a 69 anos","70 a 74 anos","75 a 79 anos","80 a 84 anos","85 a 89 anos", "90 a 94 anos", "95 a 99 anos"]
     df_agrupado['DS_FAIXA_ETARIA'] = pd.Categorical(df_agrupado['DS_FAIXA_ETARIA'], categories=ordem_faixa_etaria,
                                                     ordered=True)
     df_agrupado = df_agrupado.sort_values('DS_FAIXA_ETARIA')
@@ -127,8 +127,8 @@ grupo_por_genero_faixa = mergePerfilLocalLocal.groupby(['DS_FAIXA_ETARIA', 'DS_G
 # Tornar os valores femininos negativos para aparecerem à esquerda
 grupo_por_genero_faixa['FEMININO'] = -grupo_por_genero_faixa['FEMININO']
 # Ordenar as faixas etárias, incluindo "100 anos ou mais" acima de "90 a 94 anos"
-ordem_faixa_etaria = ["16 anos", "17 anos", "18 a 20 anos", "21 a 24 anos", "25 a 34 anos", "35 a 44 anos","45 a 59 anos",
-                          "60 a 69 anos","70 a 79 anos", "Superior a 79 anos"]
+ordem_faixa_etaria = ["16 anos", "17 anos", "18 anos","19 anos", "20 anos","21 a 24 anos", "25 a 29 anos", "30 a 34 anos","35 a 39 anos",
+                          "40 a 44 anos","45 a 49 anos","50 a 54 anos","55 a 59 anos","60 a 64 anos","65 a 69 anos","70 a 74 anos","75 a 79 anos","80 a 84 anos","85 a 89 anos", "90 a 94 anos", "95 a 99 anos"]
 grupo_por_genero_faixa = grupo_por_genero_faixa.reindex(ordem_faixa_etaria)
 
 # Criar o gráfico de pirâmide etária
