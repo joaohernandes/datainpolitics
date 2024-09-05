@@ -44,7 +44,7 @@ st.markdown(
 )
 
 # Puxando os dados da sessão
-perfil2020 = st.session_state["dataPerfil2020"]
+perfil2020 = st.session_state["dataPerfil"]
 boletim1Pref = st.session_state["dataBoletim1Pref"]
 boletimVere = st.session_state["dataBoletimVere"]
 locais2020 = st.session_state["dataLocais2020"]
