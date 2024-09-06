@@ -153,7 +153,7 @@ if 'Vereador' in tipo_eleicao:
             "**Dica:** Analise em quais locais de votação esses candidatos foram melhor e na página **PERFIL POR SEÇÃO** **descubra** qual o **perfil do eleitor** que vota naquele local")
         st.write('**Clique no botão abaixo e descubra o Perfil do Eleitor de cada seção.**')
         if st.button('Clique Aqui'):
-            switch_page('perfil por seção')
+            switch_page('perfil por seção 2020')
 
         st.write('### O que entender a partir deste gráfico?')
         st.markdown("""
@@ -243,7 +243,7 @@ if tipo_eleicao in "Prefeito":
 
         st.write('**Clique no botão abaixo e descubra o Perfil do Eleitor de cada seção**')
         if st.button('Clique Aqui'):
-            switch_page('perfil por seção')
+            switch_page('perfil por seção 2020')
 
         st.write('### O que entender a partir deste gráfico?')
         st.markdown("""
